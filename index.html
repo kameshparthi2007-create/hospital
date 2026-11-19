@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarePoint Hospital Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>✚ CarePoint</h2>
+    <p>Hospital Management</p>
+
+    <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#register">Register Patient</a>
+        <a href="#queue">Waiting Patients</a>
+        <a href="#treated">Treated Patients</a>
+        <a href="#search">Search Patient</a>
+    </nav>
+</div>
+
+<main>
+    <header>
+        <h1>Hospital Emergency Management</h1>
+        <p>Patient Management Dashboard</p>
+    </header>
+
+    <section id="dashboard">
+        <h2>Dashboard Overview</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Waiting Patients</h3>
+                <p id="waitingCount">0</p>
+            </div>
+
+            <div class="card critical">
+                <h3>Critical Patients</h3>
+                <p id="criticalCount">0</p>
+            </div>
+
+            <div class="card moderate">
+                <h3>Moderate Patients</h3>
+                <p id="moderateCount">0</p>
+            </div>
+
+            <div class="card treated">
+                <h3>Treated Patients</h3>
+                <p id="treatedCount">0</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="panel">
+        <h2>Register New Patient</h2>
+
+        <form id="patientForm">
+            <label>Patient ID</label>
+            <input type="number" id="patientId"
+                   placeholder="Enter patient ID" required>
+
+            <label>Patient Name</label>
+            <input type="text" id="patientName"
+                   placeholder="Enter patient name" required>
+
+            <label>Priority Level</label>
+            <select id="priority" required>
+                <option value="">Select Priority</option>
+                <option value="1">1 - Critical</option>
+                <option value="2">2 - Moderate</option>
+                <option value="3">3 - Low</option>
+            </select>
+
+            <button type="submit">Register Patient</button>
+        </form>
+
+        <p id="message"></p>
+    </section>
+
+    <section id="queue" class="panel">
+        <h2>Waiting Patient List</h2>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Priority</th>
+                        <th>Registered Time</th>
+                    </tr>
+                </thead>
+                <tbody id="waitingTable"></tbody>
+            </table>
+        </div>
+
+        <button id="treatButton">Treat Next Patient</button>
+    </section>
+
+    <section id="treated" class="panel">
+        <h2>Treated Patient History</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Priority</th>
+                    <th>Treated Time</th>
+                </tr>
+            </thead>
+            <tbody id="treatedTable"></tbody>
+        </table>
+    </section>
+
+    <section id="search" class="panel">
+        <h2>Search Patient</h2>
+
+        <input type="number" id="searchId"
+               placeholder="Enter Patient ID">
+
+        <button id="searchButton">Search</button>
+
+        <div id="searchResult"></div>
+    </section>
+
+    <footer>
+        <p>CarePoint Hospital Management System</p>
+        <p>Academic Project - Data Structures</p>
+        <p>Priority values are for demonstration only, not clinical triage.</p>
+    </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
